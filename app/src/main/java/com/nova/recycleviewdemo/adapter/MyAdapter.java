@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.nova.recycleviewdemo.R;
@@ -23,10 +24,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder>{
     private List<String> data = new ArrayList<>();
     private Context mContext;
 
-    private View VIEW_FOOTER;
-    private View VIEW_HEADER;
+    private static View VIEW_FOOTER;
+    private static View VIEW_HEADER;
 
-    //TYPE
+    //TYPE 定义头部，尾部，正常列标识
     private int TYPE_NORMAL = 1000;
     private int TYPE_HEADER = 1001;
     private int TYPE_FOOTER = 1002;
@@ -100,18 +101,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder>{
     }
 
     public static class MyHolder extends RecyclerView.ViewHolder{
+        public LinearLayout layout;
         public MyHolder(View itemView){
             super(itemView);
+            if(itemView != VIEW_FOOTER && itemView !=VIEW_HEADER){
+                layout = itemView.findViewById(R.id.rl_delete);
+            }
+
 
         }
     }
 
     //是否有头部
-    private boolean haveHeaderView(){
+    public boolean haveHeaderView(){
         return VIEW_HEADER != null;
     }
     //是否有尾部
-    private boolean havaFooterView(){
+    public boolean havaFooterView(){
         return VIEW_FOOTER != null;
     }
     //判断是否是头部
@@ -162,5 +168,10 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHolder>{
             });
 
         }
+    }
+
+    public void removeItem(int position) {
+        data.remove(position);
+        notifyDataSetChanged();
     }
 }

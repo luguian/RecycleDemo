@@ -1,20 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rl_delete"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp">
+
+        <TextView
+            android:id="@+id/item_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="我是第1个item" />
+
+        <TextView
+            android:id="@+id/item_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/item_list"
+            android:gravity="center"
+            android:text="2017年10月25日" />
+
+    </RelativeLayout>
+
 
     <TextView
-        android:id="@+id/item_list"
-        android:layout_width="wrap_content"
+        android:id="@+id/item_delete"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
-        android:text="我是第1个item"
-        />
+        android:layout_toRightOf="@id/item_list"
+        android:background="#88ff0000"
+        android:gravity="center"
+        android:text="删除" />
 
-    <TextView
-        android:id="@+id/item_time"
-        android:layout_below="@id/item_list"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="2017年10月25日"/>
-
-</RelativeLayout>
+</LinearLayout>

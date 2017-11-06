@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context="com.nova.recycleviewdemo.ui.MainActivity">
 
-    <android.support.v7.widget.RecyclerView
+    <com.nova.recycleviewdemo.view.MyCustomRecycleView
         android:id="@+id/recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
